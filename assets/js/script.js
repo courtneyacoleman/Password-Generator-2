@@ -1,17 +1,20 @@
+
+//assign global variables
 let characters = '';
 let upperCase = '';
 let lowerCase = '';
 let numeric = '';
 let specialChar = '';
 let password = [];
-let final = '';
+//let final = '';
+
 
 // onclick event for the generate button
 document.getElementById('generate').addEventListener('click', passwordLength);
 
 // function to collect user inputs
 function passwordLength () {
-    characters = prompt('How should the password be?  8-128 characters.');
+    characters = prompt('How long should the password be?  8-128 characters.');
     //confirm user input is between 8 and 128
     if ((characters >= 8) && (characters <=128)){
     passwordCriteria();
@@ -19,10 +22,11 @@ function passwordLength () {
     else {
     alert('Please enter a valid input.')
     }
-    console.log('characters:', characters);
+    //console.log('characters:', characters);
 }
 
 function passwordCriteria() {
+    //let password = [];
     upperCase = confirm('Should the password contain upper case letters?');
     if (upperCase === true) {
         password.push('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z')
@@ -39,10 +43,10 @@ function passwordCriteria() {
     if (specialChar === true) {
         password.push('!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~')
     }
-    console.log('upperCase:', upperCase);
-    console.log('lowerCase:', lowerCase);
-    console.log('numeric:', numeric);
-    console.log('specialChar:', specialChar);
+    // console.log('upperCase:', upperCase);
+    // console.log('lowerCase:', lowerCase);
+    // console.log('numeric:', numeric);
+    // console.log('specialChar:', specialChar);
 
     //validate confirm input from user
     if ((upperCase === false) && 
@@ -50,18 +54,18 @@ function passwordCriteria() {
         (numeric === false) && 
         (specialChar === false)) {
         alert('Password must contain at least one character type')
+        return;
     }
-    else {
-        //createPassword();
-    }
+
     createPassword();
 }
 
-console.log('password' , password);
-console.log('char length', characters.length);
-console.log('char value', characters.value);
+// console.log('password' , password);
+// console.log('char length', characters.length);
+// console.log('char value', characters.value);
 
 function createPassword () {
+    let final = '';
     for (let i = 0; i < characters; i++){
         let rando = Math.floor(Math.random() * password.length);
         let choice= password[rando];
@@ -76,6 +80,7 @@ function createPassword () {
     //alert(final);
     var showPassword = document.getElementById('password');
     showPassword.innerText = final;
+    return final;
 }
 
 
