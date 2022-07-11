@@ -6,7 +6,7 @@ let lowerCase = '';
 let numeric = '';
 let specialChar = '';
 let password = [];
-//let final = '';
+
 
 
 // onclick event for the generate button
@@ -24,9 +24,9 @@ function passwordLength () {
     }
     //console.log('characters:', characters);
 }
-
+//alerts to set the parameters of the password
 function passwordCriteria() {
-    //let password = [];
+    password = [];
     upperCase = confirm('Should the password contain upper case letters?');
     if (upperCase === true) {
         password.push('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z')
@@ -64,6 +64,7 @@ function passwordCriteria() {
 // console.log('char length', characters.length);
 // console.log('char value', characters.value);
 
+//function to select characters from the array and assign them to a string to create the password
 function createPassword () {
     let final = '';
     for (let i = 0; i < characters; i++){
